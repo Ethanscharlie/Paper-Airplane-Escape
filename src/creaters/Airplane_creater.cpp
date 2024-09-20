@@ -5,12 +5,12 @@ Entity *createAirplane() {
   Entity *entity = GameManager::createEntity("Airplane");
   entity->layer = 10;
 
-  entity->box = Box(-473.25, -379.50, 88.50, 43.50);
+  entity->box = Box(-188.946, -262.225, 40.8492, 20.205);
 
   Sprite *sprite = entity->add<Sprite>();
   sprite->image = Image("res/images/cannon.png");
 
-  Airplane* airplane = entity->add<Airplane>();
+  Airplane *airplane = entity->add<Airplane>();
 
   return entity;
 }

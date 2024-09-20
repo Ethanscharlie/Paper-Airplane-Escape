@@ -7,8 +7,10 @@
 #include "Light.hpp"
 #include "SolidBody.hpp"
 #include "Vector2f.hpp"
+#include "components/Fan_component.hpp"
 #include "config.h"
 #include "creaters/Airplane_creater.hpp"
+#include "creaters/Fan_creater.hpp"
 #include "debugtools.hpp"
 #include <cmath>
 #include <stdlib.h>
@@ -35,12 +37,13 @@ void addCollider(Box box) {
 }
 
 int main(int, char **) {
-  GameManager::init();
+  GameManager::init(Vector2f(5, 6) * 100);
 
   Entity *background = GameManager::createEntity("background");
-  background->box.size = {1920, 1080};
+  background->box.size = GameManager::gameWindowSize;
   background->box.setWithCenter({0, 0});
-  background->add<Sprite>()->image = {"res/images/paper.jpg"};
+  background->add<Sprite>()->image = {"res/images/Levels/level1.jpg"};
+  background->layer = -1;
 
   createAirplane();
 
@@ -52,14 +55,23 @@ int main(int, char **) {
   light->get<Light>()->g = 230;
   light->get<Light>()->b = 200;
 
-  addCollider(Box(-570.75, -453.75, 51.00, 834.00));
-  addCollider(Box(-542.25, 355.50, 1164.00, 82.50));
-  addCollider(Box(525.75, -463.50, 97.50, 873.75));
-  addCollider(Box(-516.00, -78.00, 654.00, 3.00));
-  addCollider(Box(-297.00, -165.00, 177.75, 4.50));
-  addCollider(Box(310.50, 52.50, 298.50, 384.75));
-  addCollider(Box(94.50, 183.00, 88.50, 240.75));
-  addCollider(Box(-168.75, 270.00, 93.75, 159.75));
+  std::vector<Box> colliders{
+      Box(-250.42, -300.00, 500.83, 20.42),
+      Box(-250.42, -300.00, 21.25, 599.58),
+      Box(-240.00, -142.50, 251.25, 24.58),
+      Box(229.17, -300.00, 47.92, 599.58),
+      Box(-88.33, -22.92, 376.25, 25.00),
+      Box(-89.17, -22.50, 25.83, 225.42),
+      Box(11.25, 215.83, 24.17, 83.75),
+      Box(-249.58, 278.75, 527.50, 20.42),
+  };
+
+  for (Box box : colliders) {
+    addCollider(box);
+  }
+
+  createFan(Box(-55.8565, 108.492, 216.545, 94.8755), FanDirection::Right);
+  createFan(Box(-87.5, -114.167, 270, 85.8333), FanDirection::Left);
 
   createDebugTooler();
 

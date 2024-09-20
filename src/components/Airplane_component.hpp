@@ -2,6 +2,7 @@
 
 #include "Charlie2D.hpp"
 #include "Event.hpp"
+#include "Vector2f.hpp"
 
 class Airplane : public Component {
 public:
@@ -9,8 +10,12 @@ public:
   void update(float deltaTime) override;
   void onDestroy() override;
 
+  void reset();
+  Angle getDireciton();
+
 private:
   float force;
   bool launched = false;
   EventIdentifer eventId;
+  Vector2f startPos;
 };
