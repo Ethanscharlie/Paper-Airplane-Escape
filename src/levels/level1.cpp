@@ -2,11 +2,13 @@
 #include "components/Fan_component.hpp"
 #include "creaters/Airplane_creater.hpp"
 #include "creaters/Fan_creater.hpp"
+#include "creaters/Finish_creater.hpp"
 #include "util.hpp"
 
 void loadLevelOne() {
   createAirplane({-188.946, -262.225});
-  GameManager::getEntities("background")[0]->get<Sprite>()->image = Image("res/images/Levels/level2.jpg");
+  GameManager::getEntities("background")[0]->get<Sprite>()->image =
+      Image("res/images/Levels/level2.jpg");
 
   std::vector<Box> colliders{
       Box(-250.42, -300.00, 500.83, 20.42),
@@ -25,4 +27,5 @@ void loadLevelOne() {
 
   createFan(Box(-55.8565, 108.492, 216.545, 94.8755), FanDirection::Right);
   createFan(Box(-87.5, -114.167, 270, 85.8333), FanDirection::Left);
+
 }

@@ -5,6 +5,7 @@
 #include "creaters/Airplane_creater.hpp"
 #include "creaters/Boost_creater.hpp"
 #include "creaters/Fan_creater.hpp"
+#include "creaters/Finish_creater.hpp"
 #include "util.hpp"
 
 void loadLevelThree() {
@@ -29,4 +30,6 @@ void loadLevelThree() {
   createFan(Box(-188.75, -241.25, 319.58, 80.83), FanDirection::Right);
 
   createBoost(Box(-36.97, 145.39, 144.51, 38.65));
+
+  createFinish({-199.488, -119.034, 111.127, 119.034});
 }
