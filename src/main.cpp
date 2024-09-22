@@ -9,9 +9,6 @@
 #include <functional>
 #include <stdlib.h>
 
-#include "levels/level1.hpp"
-#include "levels/level2.hpp"
-
 int main(int, char **) {
   GameManager::init(Vector2f(5, 6) * 100);
 
@@ -25,7 +22,7 @@ int main(int, char **) {
   light->get<Light>()->g = 230;
   light->get<Light>()->b = 200;
 
-  loadLevel(loadLevelTwo);
+  loadLevelWithIndex(4);
 
   GameManager::doUpdateLoop();
   return 0;

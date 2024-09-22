@@ -6,12 +6,10 @@
 #include "levels/level2.hpp"
 #include "levels/level3.hpp"
 #include "levels/level4.hpp"
+#include "levels/level5.hpp"
 
 std::vector<std::function<void()>> levels = {
-    loadLevelOne,
-    loadLevelTwo,
-    loadLevelThree,
-    loadLevelFour,
+    loadLevelOne, loadLevelTwo, loadLevelThree, loadLevelFour, loadLevelFive,
 };
 
 std::vector<std::function<void()>>::iterator currentLevel = levels.begin();
@@ -38,6 +36,11 @@ void loadLevel(std::function<void()> level) {
 }
 
 void nextLevel() {
-  currentLevel ++;
+  currentLevel++;
+  loadLevel(*currentLevel);
+}
+
+void loadLevelWithIndex(int index) {
+  currentLevel = levels.begin() + index;
   loadLevel(*currentLevel);
 }
