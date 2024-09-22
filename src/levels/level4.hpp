@@ -1,11 +1,13 @@
 #pragma once
 
 #include "Charlie2D.hpp"
+#include "Vector2f.hpp"
 #include "components/Fan_component.hpp"
 #include "creaters/Airplane_creater.hpp"
 #include "creaters/Boost_creater.hpp"
 #include "creaters/Fan_creater.hpp"
 #include "creaters/Lever_creater.hpp"
+#include "creaters/Moving_creater.hpp"
 #include "util.hpp"
 
 void loadLevelFour() {
@@ -33,4 +35,7 @@ void loadLevelFour() {
 
   createLever({30.2343, -139.239, 61.9326, 58.4187},
               {-224.524, 178.77, 96.1933, 20.205});
+
+  createMoving(Box(-185.432, -139.239, 18.448, 20.6442),
+               Vector2f(-47.9502, -138.799));
 }
