@@ -13,7 +13,6 @@ public:
   void reset();
   Angle getDireciton();
 
-private:
   float force;
   bool launched = false;
   EventIdentifer eventId;

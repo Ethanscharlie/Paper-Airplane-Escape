@@ -9,14 +9,10 @@ int checkFanDirection(FanDirection fanDirection,
 
   switch (fanDirection) {
   case FanDirection::Right:
-    if (airplaneHorizontalDirection > 0) {
-      directionMultiplier = 1;
-    }
+    directionMultiplier = 1;
     break;
   case FanDirection::Left:
-    if (airplaneHorizontalDirection < 0) {
-      directionMultiplier = -1;
-    }
+    directionMultiplier = -1;
     break;
   }
 

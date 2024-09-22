@@ -1,5 +1,6 @@
 #include "util.hpp"
 #include "ShadowFilter.hpp"
+#include "debugtools.hpp"
 
 void addCollider(Box box) {
   Entity *entity = GameManager::createEntity("");
@@ -19,4 +20,5 @@ void loadLevel(std::function<void()> level) {
   }
 
   level();
+  createDebugTooler();
 }

@@ -3,11 +3,15 @@
 #include "Vector2f.hpp"
 #include "creaters/background_creater.hpp"
 #include "debugtools.hpp"
-#include "levels/level1.hpp"
 #include "util.hpp"
 #include <cmath>
 #include <cstdlib>
 #include <stdlib.h>
+
+#include "levels/level1.hpp"
+#include "levels/level2.hpp"
+#include "levels/level3.hpp"
+#include "levels/level4.hpp"
 
 int main(int, char **) {
   GameManager::init(Vector2f(5, 6) * 100);
@@ -22,9 +26,8 @@ int main(int, char **) {
   light->get<Light>()->g = 230;
   light->get<Light>()->b = 200;
 
-  createDebugTooler();
 
-  loadLevel(loadLevelOne);
+  loadLevel(loadLevelFour);
 
   GameManager::doUpdateLoop();
   return 0;

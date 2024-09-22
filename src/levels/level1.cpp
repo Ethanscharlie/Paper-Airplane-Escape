@@ -6,6 +6,7 @@
 
 void loadLevelOne() {
   createAirplane({-188.946, -262.225});
+  GameManager::getEntities("background")[0]->get<Sprite>()->image = Image("res/images/Levels/level2.jpg");
 
   std::vector<Box> colliders{
       Box(-250.42, -300.00, 500.83, 20.42),

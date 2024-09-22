@@ -3,14 +3,11 @@
 #include "SolidBody.hpp"
 #include "Vector2f.hpp"
 
-// #define INITIAL_FORCE 200
-// #define TRACTION 10
-// #define GRAVITY 80
-// #define ANGLE_MODER_MULTIPLIER 5
 #define INITIAL_FORCE 150
 #define TRACTION 70
 #define GRAVITY 40
 #define ANGLE_MODER_MULTIPLIER 2
+#define FORCE_CAP 370
 
 void Airplane::start() {
   eventId = Event::addEventListener("LeftMouseButtonDown", [this]() {
@@ -44,7 +41,7 @@ void Airplane::update(float deltaTime) {
     force += GRAVITY * 1.8 * differentAngleModifier * deltaTime;
   } else {
     force -= GRAVITY * differentAngleModifier * deltaTime;
-    force -= TRACTION * deltaTime;
+    force -= TRACTION * 1.2 * deltaTime;
   }
 
   if (force < 0)
@@ -56,6 +53,10 @@ void Airplane::update(float deltaTime) {
       reset();
       launched = false;
     }
+  }
+
+  if (force > FORCE_CAP) {
+    force = FORCE_CAP;
   }
 }
 
