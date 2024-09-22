@@ -1,3 +1,5 @@
+# Paper Airplane Escape
+
 # Compile Instructions
 ## Linux
 Install cmake
