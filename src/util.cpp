@@ -1,5 +1,6 @@
 #include "util.hpp"
 #include "ShadowFilter.hpp"
+#include "creaters/StaticScene_creater.hpp"
 #include "debugtools.hpp"
 
 #include "levels/level1.hpp"
@@ -38,6 +39,16 @@ void loadLevel(std::function<void()> level) {
 
 void nextLevel() {
   currentLevel++;
+
+  if (currentLevel == levels.end()) {
+    currentLevel = levels.begin();
+    loadLevel([](){});
+    loadStaticscene({"res/images/endScreen.jpg"}, []() {
+      loadStaticscene({"res/images/endScreen.jpg"}, loadLevelTwo);
+    });
+    return;
+  }
+
   loadLevel(*currentLevel);
 }
 

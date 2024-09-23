@@ -6,6 +6,7 @@
 #include "creaters/Airplane_creater.hpp"
 #include "creaters/Boost_creater.hpp"
 #include "creaters/Fan_creater.hpp"
+#include "creaters/Finish_creater.hpp"
 #include "creaters/Lever_creater.hpp"
 #include "creaters/Moving_creater.hpp"
 #include "util.hpp"
@@ -38,4 +39,6 @@ void loadLevelFour() {
 
   createMoving(Box(-185.432, -139.239, 18.448, 20.6442),
                Vector2f(-47.9502, -138.799));
+
+  createFinish({-217.936, 204.246, 75.1098, 68.082});
 }
