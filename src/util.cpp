@@ -7,10 +7,11 @@
 #include "levels/level3.hpp"
 #include "levels/level4.hpp"
 #include "levels/level5.hpp"
+#include "levels/level6.hpp"
 
-std::vector<std::function<void()>> levels = {
-    loadLevelOne, loadLevelTwo, loadLevelThree, loadLevelFour, loadLevelFive,
-};
+std::vector<std::function<void()>> levels = {loadLevelOne,   loadLevelTwo,
+                                             loadLevelThree, loadLevelFour,
+                                             loadLevelFive,  loadLevelSix};
 
 std::vector<std::function<void()>>::iterator currentLevel = levels.begin();
 

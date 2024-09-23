@@ -22,7 +22,7 @@ int main(int, char **) {
   light->get<Light>()->g = 230;
   light->get<Light>()->b = 200;
 
-  loadLevelWithIndex(4);
+  loadLevelWithIndex(5);
 
   GameManager::doUpdateLoop();
   return 0;
